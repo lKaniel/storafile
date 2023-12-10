@@ -1,4 +1,3 @@
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import {
   type DefaultSession,
   getServerSession,
@@ -7,8 +6,6 @@ import {
 import GoogleProvider from "next-auth/providers/google";
 
 import { env } from "@storafile/env";
-import { db } from "@storafile/server/db";
-import { mysqlTable } from "@storafile/server/db/schema";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
@@ -28,7 +25,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  adapter: DrizzleAdapter(db, mysqlTable),
+  // adapter: DrizzleAdapter(db, mysqlTable),
   providers: [
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,

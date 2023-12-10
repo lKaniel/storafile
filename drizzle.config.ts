@@ -6,7 +6,7 @@ export default {
   schema: "./src/server/db/schema.ts",
   driver: "mysql2",
   dbCredentials: {
-    connectionString: env.POSTGRES_URL,
+    connectionString: env.DATABASE_URL,
   },
   tablesFilter: ["storafile2_*"],
 } satisfies Config;
